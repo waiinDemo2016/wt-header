@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <!--<script src="https://polygit.org/components/webcomponentsjs/webcomponents-lite.min.js"></script>
+    <link rel="import" href="https://polygit.org/components/polymer/polymer.html" />-->
+    <Link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+    <link rel="import" href="../wt-meu-search/wt-menu-search-styles.html" />
+    <!--
+    `<wt-header-serach>`   inserts search icon button into your page ,after clicking on it will hide and unhide the search box. 
+    -->
+
+</head>
+<body >
+    <dom-module id="wt-menu-search">
+        <style include="wt-menu-search-styles"></style>
+        <template>
+            <div class="search-widget" id="search-font">
+                <button class="search-button" on-click="openSearch" style="outline:0;">
+                    <i class="material-icons">{{icon}}</i>
+                </button>
+                <div id="sinput" style="display:none">
+                    <input name="q" id="search-input" autocomplete="off" type="text" placeholder=" Search">
+                </div>
+            </div>
+        </template>
+    </dom-module>
+</body>
+</html>
+<script>
+    Polymer({
+        /*registers polymer element*/
+        is: "wt-menu-search",
+        properties: {
+            /*Type of icon want to use in place of search*/
+            icon: {
+                type:String
+            }
+        },
+        /*After clicking on search icon it will open or close search input box*/
+        openSearch: function () {
+            var s = document.getElementById('search-font');
+            if (s.className === "search-widget style-scope wt-menu-search") {
+                document.getElementById("sinput").style.display = "inline-block";
+                s.className = "search-widget style-scope wt-menu-search input-type-slide close-button";
+            }
+            else {
+                document.getElementById("sinput").style.display = "none";
+                s.className = "search-widget style-scope wt-menu-search";
+            }
+        },
+
+
+        //closeSearch: function () {
+        //    var s = document.getElementById('search-font');
+        //    document.getElementById("sinput").style.display = "none";
+        //    s.className = "search-widget style-scope wt-menu-search";
+        //}
+    })
+</script>

@@ -1,0 +1,40 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>wt-header</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="author" content="@toddmotto">
+    <script src="https://polygit.org/components/webcomponentsjs/webcomponents-lite.min.js"></script>
+    <link rel="import" href="https://polygit.org/components/polymer/polymer.html" />
+    <!--<link rel="import" href="menu-element.html" />-->
+    <link rel="import" href="../wt-header/wt-header.html" />
+    <link rel="import" href="../wt-icon/wt-icon-page.html" />
+    <link rel="import" href="../wt-meu-search/wt-menu-search.html" />
+    <style is="custom-style">
+       wt-icon-image {
+        --wt-icon-page-imageicon:url("../img/waiin_logo.png");
+        --wt-icon-image-height:55px;
+        --wt-icon-image-width:60px;
+    }
+
+
+        wt-header {
+            --wt-menu-color:#5D93DE;
+            --wt-menu-forecolor:white;
+            --wt-menu-font:Open Sans, sans-serif;
+            --wt-headermenu-color:#5D93DE;
+        }
+
+        wt-menu-search {
+            --wt-menu-search-color:red;
+        }
+    </style>
+
+</head>
+<body>
+    <!--menu array-->
+    <wt-header menus='["Home","Products","About Us","Contact","FAQ","menuitem"]' header="compactheader"></wt-header>
+    
+</body>
+</html>

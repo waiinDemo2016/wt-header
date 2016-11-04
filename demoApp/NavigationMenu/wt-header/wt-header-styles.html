@@ -1,0 +1,91 @@
+﻿<dom-module id="wt-header-styles">
+    <template>
+
+        <style>
+            /*@import url(//fonts.googleapis.com/css?family=Open+Sans);*/
+
+            :host {
+                margin: 0;
+            }
+
+
+                :host ::content ul.topnav {
+                    list-style-type: none;
+                    margin: 0;
+                    padding: 0;
+                    overflow: hidden;
+                    /*background-color: orangered;*/
+                    background-color: var(--wt-menu-color);
+                    width: 100%;
+                }
+
+                    :host ::content ul.topnav.li {
+                        float: left;
+                    }
+
+                    :host ::content ul.topnav li a {
+                        display: inline-block;
+                        /*color:#f2f2f2;*/
+                        color: var(--wt-menu-forecolor);
+                        text-align: center;
+                        padding: 14px 16px;
+                        text-decoration: none;
+                        font-family: var(--wt-menu-font);
+                        font-size: 17px;
+                        transition: 0.3s;
+                    }
+
+                        :host ::content ul.topnav li a:hover {
+                            /*background-color:#555;*/
+                            /*background-color:orangered;*/
+                            background-color: var(--wt-menu-color);
+                        }
+
+                    :host::content ul.topnav li.icon {
+                        display: none;
+                    }
+
+                :host::content img {
+                    height: 50px;
+                    width: 50px;
+                }
+
+            @media screen and (max-width:600px) {
+                :host::content ul.topnav li:not(:first-child) {
+                    display: none;
+                }
+
+                    :host::content ul.topnav li.icon {
+                        /*float:right;
+                        float: left;*/
+                        float: inherit;
+                        display: inline-block;
+                    }
+            }
+
+            @media screen and (max-width:680px) {
+                :host::content ul.topnav.responsive {
+                    position: relative;
+                    list-style-type: none;
+                    width: 100%;
+                }
+
+                    :host::content ul.topnav.responsive li.icon {
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                    }
+
+                    :host::content ul.topnav.responsive li {
+                        float: none;
+                        display: inline;
+                    }
+
+                        :host::content ul.topnav.responsive li a {
+                            display: block;
+                            text-align: left;
+                        }
+            }
+        </style>
+    </template>
+</dom-module>

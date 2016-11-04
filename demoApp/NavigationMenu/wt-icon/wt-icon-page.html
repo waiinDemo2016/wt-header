@@ -1,0 +1,38 @@
+﻿<head>
+    <!--<script src="https://polygit.org/components/webcomponentsjs/webcomponents-lite.min.js"></script>
+    <link rel="import" href="htt-->ps://polygit.org/components/polymer/polymer.html" />
+    <!--
+        `<wt-icon-page>` is element used to set logo image for header on page    
+    -->
+</head>
+<body>
+    <wt-icon-image></wt-icon-image>
+    <dom-module id="wt-icon-image">
+        <style>
+           
+            :host::content img.imageicon {
+                
+                content:var(--wt-icon-page-imageicon);/*changes logo image*/
+                height:var(--wt-icon-image-height);/*changes height of image*/
+                width:var(--wt-icon-image-width);/*changes width of image*/
+                margin-top: 7px;
+                margin-left: 7px;
+                margin-bottom: 1px;
+            }
+        </style>
+        <template>
+            <img class="imageicon">
+        </template>
+    </dom-module>
+
+   
+</body>
+<script>
+    Polymer({
+        is: "wt-icon-image",
+        properties: {
+            
+        },
+       
+    })
+</script>

@@ -1,0 +1,112 @@
+﻿<link rel="import" href="menu-styles.html" />
+<link rel="import" href="../wt-header/wt-header-styles.html" />
+<link rel="import" href="../wt-icon/wt-icon-page.html" />
+<link rel="import" href="../wt-meu-search/wt-menu-search.html" />
+
+
+<!--
+    `<wt-header>` element used to set navigation menu by passing array of menu as property to element    
+-->
+<dom-module id="wt-header">
+    <style include="menu-styles"></style>
+    <style is="custom-style" include="wt-header-styles">
+           wt-icon-image {
+        --wt-icon-page-imageicon:url("../img/waiin_logo.png");
+        --wt-icon-image-height:55px;
+        --wt-icon-image-width:60px;
+    }
+
+    /*menu-element {
+        --wt-menu-color:orangered;
+        --wt-menu-forecolor:white;
+        --wt-menu-font:Open Sans, sans-serif;
+    }*/
+
+    wt-header {
+        --wt-menu-color:orangered;
+        --wt-menu-forecolor:white;
+        --wt-menu-font:Open Sans, sans-serif;
+    }
+
+    wt-menu-search {
+        --wt-menu-search-color:white;
+    }
+        div#headercolor {
+            background-color:var(--wt-headermenu-color);
+        
+        }
+    </style>
+    <body unresolved>
+        <template header="{{standardHeader}}">
+            <div style="margin-top:10px;" id="headercolor">
+                <div id="compact">                 
+                        <wt-icon-image></wt-icon-image>
+                        <wt-menu-search icon='search'></wt-menu-search>              
+                </div>
+                <ul class="topnav" id="myTopnav">
+
+                    <li id="stdIcon" style="display:inline-block;">
+                        <wt-icon-image></wt-icon-image>
+                    </li>
+
+                    <template is="dom-repeat" id="menuList" items="{{menus}}">
+                        <li><a href="#">{{item}}</a></li>
+                    </template>
+                    <li class="icon">
+                        <a href="javascript:void(0)" style="font-size:15px;float:left;" on-tap="menuResponsive">☰</a>
+                    </li>
+                </ul>
+            </div>
+        </template>
+    </body>
+</dom-module>
+
+<script>
+    Polymer({
+        is: "wt-header",
+        ready: function () {
+            
+            if (this.header === "standardHeader" || this.header === "standardheader")
+            {
+              //  alert(document.getElementById("stdIcon").style.display)
+                document.getElementById("stdIcon").style.display = "none"
+            }
+            else if (this.header === "compactHeader" || this.header === "compactheader")
+            {
+             //   alert(document.getElementById("compact").style.display);
+                document.getElementById("compact").style.display = "none"
+            }
+       
+        },
+        properties: {
+            /*takes menu array for display into navigation menu*/
+            menus: {
+                type: Array,
+                value: function () {
+                    return this;
+                },
+                notify: true
+            },
+            /*header type can be compactHeader or standardHeader<br/>
+            <b>compactHeader :</b> It shows single row with logo and menu list<br/>
+            <b>standardHeader :</b> It shows two level navigation*/
+            header: {
+                type:String
+            }
+ 
+        },
+ 
+     
+        menuResponsive: function () {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav style-scope wt-header") {
+
+                x.className += " responsive";
+            }
+            else {
+                x.className = "topnav style-scope wt-header";
+            }
+        }
+    })
+</script>
+
